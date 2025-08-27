@@ -9,6 +9,56 @@
 
 \begin{document}
 %\tdplotsetmaincoords{60}{120}
+\section{FPFDM}
+
+\begin{verbatim}
+Semmineh, Natenael B., et al. "An efficient computational approach to
+characterize DSC-MRI signals arising from three-dimensional heterogeneous tissue
+structures." PloS one 9.1 (2014): e84764.
+\end{verbatim}
+
+Field pertubation given by the integral/superposition of finite perturbers over
+the field of view
+\[
+\Delta B =  \int V \Delta B_\text{cube}  = \mathcal{F}^{-1} \left( \mathcal{F} V \mathcal{F} \Delta B_\text{cube} \right)
+\]
+Where
+\[
+\Delta B_\text{cube}  = \frac{ 6 \Delta \chi R^3} {\pi 3 r^3} (3 \cos^2 \theta-1) B_0
+\]
+
+Time explicit finite difference on Bloch equations to solve for magnetization
+\[
+M(t+\Delta t) = \Phi(t) \otimes (I+A)M(t)
+\]
+Field pertubations appear in RHS of Bloch solve
+\[
+\Phi(t) = [ \dots \exp(-i \gamma \Delta B_k \Delta t - \Delta t / T2_k) \dots ] 
+\]
+MR signal is sum over the FOV
+\[
+S(t) = \frac{1}{M_0} \sum_k M_k(t)
+\]
+Transverse relaxation rates are calculated at the echo time and are proportional
+to the concentration curves from Rohan, $C_T(t)$
+\[
+\Delta R_2 = - \frac{ ln S(TE)}{TE} = k \cdot C_T(t)
+\]
+
+Tissue blood flow, tissue blood volume and MTT are obtained from the
+concentration, $C_T(t)$ and AIF, $C_A$.
+\[
+C_T(t) = TBF \int_0^t C_A(\tau) R (t-\tau) d\tau
+\]
+\[
+TBV = \frac{ \int C_T dt}{\int C_A dt}
+\]
+\[
+MTT = \frac{TBV}{TBF}
+\]
+
+
+\section{Derivations}
 Adapting  the interpretation of 
 
 Indicator Dilution Methods for Measuring Blood Flow, Volume,
