@@ -4,6 +4,7 @@
 \usepackage{pgfplots}
 \usetikzlibrary{shapes}
 
+\usepackage[top=0.5in,bottom=0.5in,left=0.5in,right=0.5in]{geometry} % Reduce the size of the margin
 
 
 
@@ -20,12 +21,15 @@ structures." PloS one 9.1 (2014): e84764.
 Field pertubation given by the integral/superposition of finite perturbers over
 the field of view
 \[
-\Delta B =  \int V \Delta B_\text{cube}  = \mathcal{F}^{-1} \left( \mathcal{F} V \mathcal{F} \Delta B_\text{cube} \right)
+\Delta B =  \int V \Delta B_\text{cube}  = \mathcal{F}^{-1} \left( \mathcal{F} V(C_T) \mathcal{F} \Delta B_\text{cube} \right)
 \]
 Where
 \[
 \Delta B_\text{cube}  = \frac{ 6 \Delta \chi R^3} {\pi 3 r^3} (3 \cos^2 \theta-1) B_0
 \]
+Here, $V$ includes the  structure information as well as concentration $C_T$
+information from flow simulation to
+where the Gadolemium concentration is within the structure, $V(C_T)$.
 
 Time explicit finite difference on Bloch equations to solve for magnetization
 \[
@@ -44,6 +48,9 @@ to the concentration curves from Rohan, $C_T(t)$
 \[
 \Delta R_2 = - \frac{ ln S(TE)}{TE} = k \cdot C_T(t)
 \]
+{\color{red} Possible circular arguement here. $C_T$ was already used to get the
+Feild perturbation. Need to look up derivation of $\Delta R_2$, MTT etc to
+determine what is appropriate for the final comparison.}
 
 Tissue blood flow, tissue blood volume and MTT are obtained from the
 concentration, $C_T(t)$ and AIF, $C_A$.
@@ -58,6 +65,7 @@ MTT = \frac{TBV}{TBF}
 \]
 
 
+\pagebreak
 \section{Derivations}
 Adapting  the interpretation of 
 
