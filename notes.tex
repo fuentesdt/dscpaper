@@ -3,6 +3,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usetikzlibrary{shapes}
+\newcommand{\picdir}{pdffig}
 
 \usepackage[top=0.5in,bottom=0.5in,left=0.5in,right=0.5in]{geometry} % Reduce the size of the margin
 
@@ -69,12 +70,56 @@ MTT = \frac{TBV}{TBF}
 \section{Derivations}
 Adapting  the interpretation of 
 
+\begin{verbatim}
+Meier, P., & Zierler, K. L. (1954). On the theory of the indicator-dilution
+method for measurement of blood flow and volume. Journal of applied physiology,
+6(12), 731-744.
+
 Indicator Dilution Methods for Measuring Blood Flow, Volume,
 and Other Properties of Biological Systems:
 A Brief History and Memoir
 KENNETH ZIERLER
+\end{verbatim}
 
+\begin{figure}[h]
+\centering
+\scalebox{0.47}{\includegraphics{\picdir/dscintuition.png}}
+\caption{Representative blood flow
+} \label{fig:DSCbloodflow}
+\end{figure}
 
+The whole point of DSC indicator dilution theory is to ignore the complex
+vasculature. Consider an incompressible fluid flowing through the vasculature in Figure~\ref{fig:DSCbloodflow}.
+Consider a mass injection $q [kg]$ within a flowing fluid at point $P$ 
+We \textbf{assume} the fluid is flowing with a mass flow $F[m^3/s]$. 
+The mass injection is diluted within the flowing fluid and appears as a
+concentration, $c[kg/m^3]$,  at point $Q$.
+Mass balance the total exiting equal the input
+\[
+    q [kg] = \int_0^\infty c[kg/m^3]F[m^3/s] \;dt  \qquad \Rightarrow  \qquad F = \frac{q }{\int_0^\infty c}
+\]
+We define the fraction exiting the system per time as $h$.
+\[
+      h(t)[1/s] = \frac{F [m^3/s] c [kg/m^3]}{q[kg]} \qquad \Rightarrow \qquad \int_0^\infty h(t) dt = 1
+\]
+
+The volume of fluid entering the system over time $t$ is the flow rate times
+time for the incompressible fluid in the static vessel structure.
+\[
+  F[m^3/s] t = \text{volume entering or exiting}
+\]
+We  will \textbf{assume} $h \; dt$ is the volume fraction exiting the system.
+Implicitly, we are assuming the that density of the indicatory within the
+flowing fluid remains at the same density. 
+Thus the volume of indicator exiting the system is the volume of the fluid times
+the volume fraction of the indicator
+\[
+   V = \int_0^\infty t [s] F[m^3/s] h(t) [1/s] dt [s]
+\qquad \Rightarrow \qquad
+   \frac{V}{F} = \int_0^\infty t  h(t)  dt  = \text{MTT}
+\]
+
+\pagebreak
 Consider mass flow, $F[m^3/s]$ through a cylindrical vessel over time $\Delta t [s]$.
 For a given concentration, $c[kg/m^3]$, we will define $h(t) [1/s] \Delta t [s]$
 as the (mass or volume? ) fraction of the original mass injection, $q_i [kg]$
