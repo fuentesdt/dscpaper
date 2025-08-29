@@ -106,7 +106,7 @@ We define the fraction exiting the system per time as $h$.
 The volume of fluid entering the system over time $t$ is the flow rate times
 time for the incompressible fluid in the static vessel structure.
 \[
-  F[m^3/s] t = \text{volume entering or exiting}
+  F[m^3/s] t = \text{volume entering or exiting \color{red} unclear why we use t here and not dt ? }
 \]
 We  will \textbf{assume} $h \; dt$ is the volume fraction exiting the system.
 Implicitly, we are assuming the that density of the indicatory within the
@@ -118,6 +118,9 @@ the volume fraction of the indicator
 \qquad \Rightarrow \qquad
    \frac{V}{F} = \int_0^\infty t  h(t)  dt  = \text{MTT}
 \]
+Either way, need to reduce full scale 1d model from rohan down to these
+assumptions. Within a voxel we need to accumulate one entry 'P' and one exit 'Q'
+to match full scale to DSC MTT.
 
 \pagebreak
 Consider mass flow, $F[m^3/s]$ through a cylindrical vessel over time $\Delta t [s]$.
